@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/lib/cartContext";
+import { useAuth } from "@/lib/authContext";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -32,6 +34,10 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { totalItems, openDrawer } = useCart();
+  const { user, logout } = useAuth();
+  const [accountOpen, setAccountOpen] = useState(false);
+  const accountTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -142,20 +148,70 @@ export default function Navbar() {
 
           {/* ── Right icons ── */}
           <div className="flex items-center gap-5">
-            {/* Buy Tickets — desktop */}
-            <Link
-              href="/tickets"
-              className={`hidden lg:inline-flex btn-cut text-[10px] py-2.5 px-6 ${isDark ? "btn-cut-light" : ""}`}
-            >
-              Buy Tickets
-            </Link>
+            {/* Auth — Login or Account */}
+            {user ? (
+              <div
+                className="relative hidden lg:block"
+                onMouseEnter={() => { if (accountTimer.current) clearTimeout(accountTimer.current); setAccountOpen(true); }}
+                onMouseLeave={() => { accountTimer.current = setTimeout(() => setAccountOpen(false), 130); }}
+              >
+                <button className={`flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-light transition-colors duration-400 ${iconBase}`}>
+                  {/* Avatar circle */}
+                  <span className="w-7 h-7 rounded-full bg-[#c5a47e]/20 border border-[#c5a47e]/40 flex items-center justify-center text-[10px] font-medium text-[#c5a47e] uppercase">
+                    {user.name.charAt(0)}
+                  </span>
+                  <span className={isDark ? "text-white/75" : "text-[#1a1a1a]/60"}>
+                    {user.name.split(" ")[0]}
+                  </span>
+                  <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                    className={`transition-transform duration-300 ${accountOpen ? "rotate-180" : ""}`}>
+                    <path d="M1 1l2.5 2.5L6 1" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+                  </svg>
+                </button>
+
+                <AnimatePresence>
+                  {accountOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute top-full right-0 mt-4 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)] min-w-[160px] py-2 z-50"
+                    >
+                      <Link href="/account" className="block px-6 py-3 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200">
+                        Profile
+                      </Link>
+                      <button
+                        onClick={() => { logout(); setAccountOpen(false); }}
+                        className="w-full text-left block px-6 py-3 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
+                      >
+                        Logout
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className={`hidden lg:inline-flex btn-cut text-[10px] py-2.5 px-6 ${isDark ? "btn-cut-light" : ""}`}
+              >
+                Login
+              </Link>
+            )}
 
             {/* Cart */}
-            <button aria-label="Cart" className={`relative transition-colors duration-400 ${iconBase}`}>
+            <button
+              aria-label="Cart"
+              onClick={openDrawer}
+              className={`relative transition-colors duration-400 ${iconBase}`}
+            >
               <CartIcon />
-              <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#c5a47e] text-white text-[9px] flex items-center justify-center font-medium leading-none">
-                0
-              </span>
+              {totalItems > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#c5a47e] text-white text-[9px] flex items-center justify-center font-medium leading-none">
+                  {totalItems > 9 ? "9+" : totalItems}
+                </span>
+              )}
             </button>
 
             {/* Search */}

@@ -5,6 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import PageBanner from "@/components/ui/PageBanner";
 import { shopItems, featuredArtworks } from "@/data/artworks";
+import { useCart, parsePrice } from "@/lib/cartContext";
+import { useAuth } from "@/lib/authContext";
+import { useLoginModal } from "@/lib/loginModalContext";
 
 const categories = ["All", "Books", "Prints", "Accessories", "Objects"];
 
@@ -12,7 +15,8 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((s) => (
-        <svg key={s} width="10" height="10" viewBox="0 0 24 24" fill={s <= rating ? "#c8a97e" : "none"} stroke="#c8a97e" strokeWidth="1.5">
+        <svg key={s} width="10" height="10" viewBox="0 0 24 24"
+          fill={s <= rating ? "#c5a47e" : "none"} stroke="#c5a47e" strokeWidth="1.5">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
       ))}
@@ -21,20 +25,29 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ShopPage() {
+  const { addItem, openDrawer } = useCart();
+  const { user } = useAuth();
+  const { requireAuth } = useLoginModal();
   const [activeCategory, setActiveCategory] = useState("All");
   const [sort, setSort] = useState("default");
   const [priceMax, setPriceMax] = useState(100);
 
   const filtered = shopItems.filter((item) => {
-    const price = parseInt(item.price);
+    const price = parsePrice(item.price);
     return (activeCategory === "All" || item.category === activeCategory) && price <= priceMax;
   });
 
   const sorted = [...filtered].sort((a, b) => {
-    if (sort === "price-asc") return parseInt(a.price) - parseInt(b.price);
-    if (sort === "price-desc") return parseInt(b.price) - parseInt(a.price);
+    if (sort === "price-asc") return parsePrice(a.price) - parsePrice(b.price);
+    if (sort === "price-desc") return parsePrice(b.price) - parsePrice(a.price);
     return 0;
   });
+
+  const handleAdd = (item: typeof shopItems[0]) => {
+    if (!user) { requireAuth(); return; }
+    addItem({ id: item.id + 1000, name: item.title, price: parsePrice(item.price), image: item.image });
+    openDrawer();
+  };
 
   return (
     <main className="pt-14 md:pt-[104px]">
@@ -85,11 +98,13 @@ export default function ShopPage() {
                       className="transition-transform duration-[900ms] group-hover:scale-[1.05]"
                       loading="lazy"
                     />
-                    {/* Hover actions */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-600" />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <button className="btn-musea btn-musea-light text-[10px] px-6 py-2.5">
-                        <span>Add to Cart</span>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                      <button
+                        onClick={() => handleAdd(item)}
+                        className="btn-cut btn-cut-light text-[10px] py-2.5 px-6"
+                      >
+                        Add to Cart
                       </button>
                     </div>
                   </div>
@@ -107,19 +122,15 @@ export default function ShopPage() {
 
           {/* Sidebar */}
           <aside className="w-full md:w-[260px] flex-shrink-0">
-
-            {/* Filter */}
             <div className="mb-10">
               <h3 className="text-[11px] tracking-[0.3em] uppercase text-[#1a1a1a]/50 mb-5">Filter</h3>
               <div className="w-full h-px bg-[#1a1a1a]/10 mb-5" />
-
-              {/* Category filter */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`text-[11px] tracking-[0.15em] uppercase px-4 py-1.5 border transition-all duration-400 ${
+                    className={`text-[11px] tracking-[0.15em] uppercase px-4 py-1.5 border transition-all duration-300 ${
                       activeCategory === cat
                         ? "bg-[#1a1a1a] text-[#f5f3ef] border-[#1a1a1a]"
                         : "border-[#1a1a1a]/20 text-[#1a1a1a]/45 hover:border-[#1a1a1a]/50 hover:text-[#1a1a1a]"
@@ -129,24 +140,18 @@ export default function ShopPage() {
                   </button>
                 ))}
               </div>
-
-              {/* Price range */}
               <div>
                 <p className="text-[11px] tracking-[0.15em] uppercase text-[#1a1a1a]/40 mb-3">
                   Price: 0$ — {priceMax}$
                 </p>
                 <input
-                  type="range"
-                  min={10}
-                  max={100}
-                  value={priceMax}
+                  type="range" min={10} max={100} value={priceMax}
                   onChange={(e) => setPriceMax(Number(e.target.value))}
-                  className="w-full accent-[#c8a97e]"
+                  className="w-full accent-[#c5a47e]"
                 />
               </div>
             </div>
 
-            {/* Featured sidebar */}
             <div>
               <h3 className="text-[11px] tracking-[0.3em] uppercase text-[#1a1a1a]/50 mb-5">Featured</h3>
               <div className="w-full h-px bg-[#1a1a1a]/10 mb-5" />
@@ -154,11 +159,7 @@ export default function ShopPage() {
                 {featuredArtworks.slice(0, 2).map((item) => (
                   <div key={item.id} className="flex gap-3 group cursor-pointer">
                     <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden bg-[#ede9e3]">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="64px"
+                      <Image src={item.image} alt={item.title} fill sizes="64px"
                         style={{ objectFit: "cover" }}
                         className="transition-transform duration-700 group-hover:scale-[1.08]"
                         loading="lazy"
@@ -169,7 +170,7 @@ export default function ShopPage() {
                         {item.title}
                       </p>
                       {item.price && (
-                        <p className="text-[11px] text-[#c8a97e] mt-1 tracking-wide">{item.price}</p>
+                        <p className="text-[11px] text-[#c5a47e] mt-1 tracking-wide">{item.price}</p>
                       )}
                     </div>
                   </div>

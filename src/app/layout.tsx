@@ -4,6 +4,12 @@ import "./globals.css";
 import Topbar from "@/components/layout/Topbar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CartDrawer from "@/components/cart/CartDrawer";
+import CookieBanner from "@/components/ui/CookieBanner";
+import LoginModal from "@/components/ui/LoginModal";
+import { CartProvider } from "@/lib/cartContext";
+import { AuthProvider } from "@/lib/authContext";
+import { LoginModalProvider } from "@/lib/loginModalContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,10 +34,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="antialiased bg-[#f5f3ef]">
-        <Topbar />
-        <Navbar />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <LoginModalProvider>
+            <CartProvider>
+              <Topbar />
+              <Navbar />
+              <CartDrawer />
+              <LoginModal />
+              <CookieBanner />
+              {children}
+              <Footer />
+            </CartProvider>
+          </LoginModalProvider>
+        </AuthProvider>
       </body>
     </html>
   );
