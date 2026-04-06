@@ -1,7 +1,15 @@
+import Hero from "@/components/layout/home/Hero";
+import GalleryGrid from "@/components/layout/home/GalleryGrid";
+import Featured from "@/components/layout/home/Featured";
+import ArtistSection from "@/components/layout/home/ArtistSection";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-5xl text-red-500">SANZISTRY</h1>
+    <main>
+      <Hero />
+      <GalleryGrid />
+      <Featured />
+      <ArtistSection />
     </main>
   );
 }
