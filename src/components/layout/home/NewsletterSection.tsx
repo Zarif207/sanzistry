@@ -17,56 +17,56 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section className="relative overflow-hidden py-0">
-      {/* Textured background */}
+    <section className="relative h-[600px] md:h-[700px] overflow-hidden flex items-center justify-center py-0">
+      {/* Background with blur and overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=1920&q=50"
-          alt="Newsletter background"
+          src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=1920&q=80"
+          alt="Museum Gallery"
           fill
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center", filter: "saturate(0.5) brightness(0.75)" }}
-          loading="lazy"
+          className="object-cover blur-[4px] scale-105"
+          priority
         />
-        <div className="absolute inset-0 bg-[#1a1a1a]/30" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Glassmorphism card */}
-      <div className="relative z-10 flex items-center justify-center min-h-[420px] px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.85, ease: "easeOut" }}
-          className="w-full max-w-[640px] bg-white/12 backdrop-blur-md border border-white/20 px-10 md:px-16 py-12 text-center"
-        >
-          <p className="font-serif italic text-white/60 text-base mb-3">Stay informed</p>
-          <h2 className="font-serif text-[clamp(1.6rem,4vw,2.4rem)] font-light tracking-[0.18em] uppercase text-white mb-3">
-            Museum News
-          </h2>
-          <div className="w-8 h-px bg-[#c5a47e] mx-auto mb-6" />
-          <p className="text-[13px] text-white/55 leading-relaxed tracking-wide mb-8 max-w-[380px] mx-auto">
-            Subscribe to receive updates on new exhibitions, events, and exclusive offers from Sanzistry.
-          </p>
+      {/* Centered White Box with Floating Effect */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 bg-white p-12 md:p-20 max-w-[700px] w-[90%] text-center shadow-[0_30px_100px_rgba(0,0,0,0.2)]"
+      >
+        <p className="font-playfair italic text-[#c5a47e] text-lg mb-6 tracking-wide">
+          Stay Informed
+        </p>
+        <h2 className="font-playfair text-[clamp(2rem,5vw,3rem)] font-light tracking-[0.2em] uppercase text-[#1a1a1a] mb-10 leading-tight">
+          Museum News
+        </h2>
+        
+        <p className="font-sans text-[15px] text-[#1a1a1a]/60 leading-[1.8] tracking-wide mb-12 max-w-[500px] mx-auto font-light">
+          Join our community of art lovers and stay updated with the latest 
+          exhibitions, exclusive events, and insights from our curators.
+        </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-0 max-w-[420px] mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              aria-label="Email address"
-              className="flex-1 bg-white/10 border border-white/25 px-5 py-3.5 text-[12px] text-white placeholder:text-white/35 focus:outline-none focus:border-white/50 transition-colors backdrop-blur-sm"
-            />
-            <button
-              type="submit"
-              className="border border-l-0 border-white/25 px-8 py-3.5 text-[11px] tracking-[0.22em] uppercase text-white/70 hover:bg-white hover:text-[#1a1a1a] hover:border-white transition-all duration-500 whitespace-nowrap"
-            >
-              {sent ? "Subscribed!" : "Subscribe"}
-            </button>
-          </form>
-        </motion.div>
-      </div>
+        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-6 items-stretch">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email Address"
+            className="flex-1 bg-[#f8f6f2] border-none px-8 py-4 text-[14px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:ring-1 focus:ring-[#c5a47e] transition-all outline-none"
+            required
+          />
+          <button
+            type="submit"
+            className="bg-[#1a1a1a] text-white px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#c5a47e] transition-colors duration-[0.6s]"
+          >
+            {sent ? "Subscribed" : "Subscribe"}
+          </button>
+        </form>
+      </motion.div>
     </section>
   );
 }

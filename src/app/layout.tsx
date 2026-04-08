@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Inter, Cormorant_Garamond, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Topbar from "@/components/layout/Topbar";
 import Navbar from "@/components/layout/Navbar";
@@ -10,6 +10,7 @@ import LoginModal from "@/components/ui/LoginModal";
 import { CartProvider } from "@/lib/cartContext";
 import { AuthProvider } from "@/lib/authContext";
 import { LoginModalProvider } from "@/lib/loginModalContext";
+import GSAPInitializer from "@/components/GSAPInitializer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,14 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Sanzistry — Art Gallery",
   description: "A curated space where artists showcase and sell their creations.",
@@ -32,11 +41,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable} ${playfair.variable}`}>
       <body className="antialiased bg-[#f5f3ef]">
         <AuthProvider>
           <LoginModalProvider>
             <CartProvider>
+              <GSAPInitializer />
               <Topbar />
               <Navbar />
               <CartDrawer />

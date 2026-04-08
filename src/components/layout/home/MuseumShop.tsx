@@ -216,11 +216,10 @@ export default function MuseumShop() {
             key={d}
             onClick={() => setPage(d)}
             aria-label={`Go to page ${d + 1}`}
-            className={`transition-all duration-400 rounded-full ${
-              page === d
+            className={`transition-all duration-400 rounded-full ${page === d
                 ? "w-5 h-1.5 bg-[#1a1a1a]"
                 : "w-1.5 h-1.5 bg-[#1a1a1a]/20 hover:bg-[#1a1a1a]/45"
-            }`}
+              }`}
           />
         ))}
       </div>
