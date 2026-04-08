@@ -44,7 +44,7 @@ export default function ContactSection() {
             {/* Left — info */}
             <div>
               <p className="font-serif italic text-[#c5a47e] text-base mb-3">Get in touch</p>
-              <h2 className="font-serif text-[clamp(2rem,4vw,2.8rem)] font-light tracking-[0.18em] uppercase mb-8">
+              <h2 className="font-serif text-[clamp(2rem,4vw,2.8rem)] font-light tracking-[0.34em] uppercase mb-8">
                 Contact
               </h2>
 

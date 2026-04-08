@@ -64,7 +64,7 @@ export default function Featured() {
                 <h3 className="text-white font-serif text-2xl font-light leading-snug">{artwork.title}</h3>
                 <p className="text-white/50 text-xs mt-1.5 tracking-wide">{artwork.artist}</p>
                 {artwork.price && (
-                  <p className="text-[#c8a97e] text-xs mt-3 tracking-[0.15em]">{artwork.price}</p>
+                  <p className="text-[#c5a47e] text-xs mt-3 tracking-[0.15em]">{artwork.price}</p>
                 )}
               </div>
             </div>

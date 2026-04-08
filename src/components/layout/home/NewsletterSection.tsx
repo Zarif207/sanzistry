@@ -38,14 +38,14 @@ export default function NewsletterSection() {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 bg-white p-12 md:p-20 max-w-[700px] w-[90%] text-center shadow-[0_30px_100px_rgba(0,0,0,0.2)]"
       >
-        <p className="font-playfair italic text-[#c5a47e] text-lg mb-6 tracking-wide">
+        <p className="font-serif italic text-[#c5a47e] text-lg mb-6 tracking-wide">
           Stay Informed
         </p>
-        <h2 className="font-playfair text-[clamp(2rem,5vw,3rem)] font-light tracking-[0.2em] uppercase text-[#1a1a1a] mb-10 leading-tight">
+        <h2 className="font-serif text-[clamp(2rem,5vw,3rem)] font-light tracking-[0.28em] uppercase text-[#1a1a1a] mb-10 leading-tight">
           Museum News
         </h2>
         
-        <p className="font-sans text-[15px] text-[#1a1a1a]/60 leading-[1.8] tracking-wide mb-12 max-w-[500px] mx-auto font-light">
+        <p className="font-sans text-[14px] text-[#1a1a1a]/55 leading-[1.85] tracking-wide mb-12 max-w-[500px] mx-auto font-light">
           Join our community of art lovers and stay updated with the latest 
           exhibitions, exclusive events, and insights from our curators.
         </p>

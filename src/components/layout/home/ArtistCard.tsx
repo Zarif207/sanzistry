@@ -30,7 +30,7 @@ export default function ArtistCard({ artist, index }: { artist: Artist; index: n
       </div>
       <h3 className="font-serif text-[1.15rem] font-light leading-snug text-[#1a1a1a]/85">{artist.name}</h3>
       <p className="text-[12px] text-[#1a1a1a]/40 mt-2 leading-relaxed tracking-wide">{artist.bio}</p>
-      <p className="text-[11px] text-[#c8a97e] mt-3 tracking-[0.15em]">{artist.works} works</p>
+      <p className="text-[11px] text-[#c5a47e] mt-3 tracking-[0.15em]">{artist.works} works</p>
     </motion.article>
   );
 }

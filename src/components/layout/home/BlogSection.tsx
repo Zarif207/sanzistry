@@ -39,7 +39,7 @@ const posts = [
 
 export default function BlogSection() {
   return (
-    <section className="py-24 bg-[#f8f6f2]">
+    <section className="py-24 md:py-40 bg-[#f8f6f2]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
 
         {/* HEADER */}
@@ -48,23 +48,23 @@ export default function BlogSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-32"
         >
-          <p className="font-serif italic text-[#c5a47e] text-sm mb-2">
+          <p className="font-serif italic text-[#c5a47e] text-[1rem] mb-4">
             Museum news
           </p>
 
-          <div className="flex items-center justify-center gap-6">
-            <span className="w-24 h-px bg-black/10" />
-            <h2 className="font-serif text-[28px] md:text-[36px] tracking-[0.3em] uppercase font-light">
+          <div className="flex items-center justify-center gap-6 md:gap-14">
+            <span className="flex-1 max-w-[200px] h-px bg-black/10" />
+            <h2 className="font-serif text-[clamp(1.5rem,5vw,3rem)] tracking-[0.34em] uppercase font-light whitespace-nowrap">
               Latest Blog Posts
             </h2>
-            <span className="w-24 h-px bg-black/10" />
+            <span className="flex-1 max-w-[200px] h-px bg-black/10" />
           </div>
         </motion.div>
 
-        {/* EDITORIAL LAYOUT */}
-        <div className="grid md:grid-cols-3 gap-10 items-start">
+        {/* EDITORIAL ASYMMETRIC LAYOUT */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16 items-start">
 
           {posts.map((post, i) => {
             const isMiddle = i === 1;
@@ -74,52 +74,52 @@ export default function BlogSection() {
                 key={post.id}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
+                transition={{ duration: 1, delay: i * 0.2, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
                 className={`relative group 
-                  ${i === 0 ? "mt-6" : ""}
-                  ${i === 2 ? "mt-20" : ""}
+                  ${i === 0 ? "md:mt-16" : ""}
+                  ${i === 2 ? "md:mt-32" : ""}
                 `}
               >
 
                 {/* IMAGE */}
                 <Link
                   href={post.href}
-                  className={`block relative overflow-hidden bg-[#ede9e2] ${
-                    isMiddle ? "h-[520px]" : "h-[380px]"
-                  }`}
+                  className={`block relative overflow-hidden bg-[#ede9e2] w-full
+                    ${isMiddle ? "aspect-[3/4.5]" : "aspect-[3/4]"}
+                  `}
                 >
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+                    className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                   />
                 </Link>
 
-                {/* FLOATING TEXT BOX */}
+                {/* OVERLAPPING FLOATING TEXT BOX */}
                 <div
-                  className={`absolute left-0 bg-[#f8f6f2] p-6 shadow-sm w-[85%]
-                  ${isMiddle ? "-bottom-20 ml-8" : "-bottom-16 ml-4"}
+                  className={`absolute left-0 bottom-[-15%] md:bottom-[-20%] bg-white p-8 md:p-10 shadow-[0_15px_60px_rgba(0,0,0,0.08)] w-[90%] md:w-[95%] z-10
+                    ${isMiddle ? "ml-8" : "ml-4"}
                   `}
                 >
-                  <p className="font-serif italic text-[#c5a47e] text-[12px] mb-2">
+                  <p className="font-serif italic text-[#c5a47e] text-[13px] mb-4">
                     {post.date}
                   </p>
 
-                  <h3 className="font-serif text-[15px] uppercase tracking-wide mb-3 text-black/80">
+                  <h3 className="font-serif text-[1.1rem] md:text-[1.3rem] uppercase tracking-[0.1em] mb-6 text-[#1a1a1a] leading-tight group-hover:text-[#c5a47e] transition-colors duration-300">
                     <Link href={post.href}>{post.title}</Link>
                   </h3>
 
-                  <p className="text-[12px] text-black/50 leading-[1.7] mb-4">
+                  <p className="text-[14px] text-black/45 leading-[1.8] mb-8 font-light">
                     {post.excerpt}
                   </p>
 
                   <Link
                     href={post.href}
-                    className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-black/50 hover:text-black transition"
+                    className="flex items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-[#1a1a1a]/40 hover:text-[#1a1a1a] transition-all duration-300 group/link"
                   >
-                    <span className="h-px w-6 bg-current group-hover:w-10 transition-all duration-300" />
+                    <span className="h-px w-8 bg-[#1a1a1a]/20 group-hover/link:w-14 group-hover/link:bg-[#1a1a1a] transition-all duration-500" />
                     Read More
                   </Link>
                 </div>
@@ -129,6 +129,9 @@ export default function BlogSection() {
           })}
 
         </div>
+
+        {/* Extra spacing at bottom due to overlapping boxes */}
+        <div className="h-40 md:h-64" />
 
       </div>
     </section>

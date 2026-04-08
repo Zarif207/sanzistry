@@ -1,41 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface SectionHeaderProps {
   eyebrow: string;
   title: string;
+  description?: string;
   linkLabel?: string;
   linkHref?: string;
+  align?: "center" | "left";
 }
 
-export default function SectionHeader({ eyebrow, title, linkLabel, linkHref }: SectionHeaderProps) {
+export default function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  linkLabel,
+  linkHref,
+  align = "center",
+}: SectionHeaderProps) {
+  const isCenter = align === "center";
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="mb-14 md:mb-18"
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className={`mb-14 ${isCenter ? "text-center" : "text-left"}`}
     >
-      <p className="text-[10px] tracking-[0.45em] uppercase text-[#1a1a1a]/35 mb-3 font-sans">
-        {eyebrow}
-      </p>
-      <div className="flex items-end justify-between gap-4">
-        <h2 className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] leading-none font-light text-[#1a1a1a]">
+      {/* Eyebrow */}
+      <p className="type-eyebrow mb-3">{eyebrow}</p>
+
+      {/* Title with flanking lines */}
+      <div className={`flex items-center gap-6 md:gap-10 mb-0 ${isCenter ? "justify-center" : ""}`}>
+        {isCenter && (
+          <span className="flex-1 max-w-[80px] sm:max-w-[140px] md:max-w-[200px] h-px bg-[#1a1a1a]/10" />
+        )}
+        <h2 className="type-heading text-[clamp(1.6rem,4vw,2.8rem)] whitespace-nowrap">
           {title}
         </h2>
-        {linkLabel && linkHref && (
-          <a
+        {isCenter && (
+          <span className="flex-1 max-w-[80px] sm:max-w-[140px] md:max-w-[200px] h-px bg-[#1a1a1a]/10" />
+        )}
+        {!isCenter && linkLabel && linkHref && (
+          <Link
             href={linkHref}
-            className="hidden sm:flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-[#1a1a1a]/35 hover:text-[#1a1a1a] transition-colors duration-400 pb-1 group"
+            className="ml-auto hidden sm:flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-[#1a1a1a]/35 hover:text-[#1a1a1a] transition-colors duration-300 group"
           >
             {linkLabel}
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </a>
+          </Link>
         )}
       </div>
-      <div className="w-8 h-px bg-[#c8a97e] mt-5" />
+
+      {/* Optional description */}
+      {description && (
+        <p className="type-body max-w-[520px] mx-auto mt-5">{description}</p>
+      )}
     </motion.div>
   );
 }

@@ -23,9 +23,11 @@ export interface ShopItem {
   id: number;
   title: string;
   price: string;
+  originalPrice?: string;
   image: string;
   rating: number;
   category: string;
+  badge?: "Sale" | "Sold";
 }
 
 export const artworks: Artwork[] = [
@@ -51,10 +53,12 @@ export const artists: Artist[] = [
 ];
 
 export const shopItems: ShopItem[] = [
-  { id: 1, title: "Musea Book", price: "17$", image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=75", rating: 5, category: "Books" },
-  { id: 2, title: "Degas Book", price: "12$", image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=75", rating: 2, category: "Books" },
-  { id: 3, title: "Linen Bag", price: "29$", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=75", rating: 4, category: "Accessories" },
-  { id: 4, title: "Art Print — Golden Hour", price: "45$", image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&q=75", rating: 5, category: "Prints" },
-  { id: 5, title: "Ceramic Vase", price: "68$", image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75", rating: 4, category: "Objects" },
-  { id: 6, title: "Gallery Poster", price: "22$", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=75", rating: 3, category: "Prints" },
+  { id: 1, title: "Brochure",    price: "15$",  image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=75",  rating: 0, category: "Books" },
+  { id: 2, title: "Small Rug",   price: "57$",  image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=75",  rating: 0, category: "Accessories" },
+  { id: 3, title: "Sculpture",   price: "25$",  originalPrice: "30$", image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75", rating: 0, category: "Objects", badge: "Sale" },
+  { id: 4, title: "Mug",         price: "9$",   image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&q=75", rating: 0, category: "Objects", badge: "Sold" },
+  { id: 5, title: "Linen Bag",   price: "29$",  image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=75", rating: 0, category: "Accessories" },
+  { id: 6, title: "Art Print",   price: "45$",  image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=75", rating: 0, category: "Prints" },
+  { id: 7, title: "Musea Book",  price: "17$",  image: "https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&q=75",  rating: 0, category: "Books" },
+  { id: 8, title: "Winslow Bag", price: "17$",  image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=600&q=75",  rating: 2, category: "Accessories" },
 ];

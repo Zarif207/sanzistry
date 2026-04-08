@@ -14,12 +14,12 @@ export default function StorySection() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="text-center px-6 mb-20"
       >
-        <p className="font-playfair italic text-[#c5a47e] text-sm mb-4 tracking-wide">
+        <p className="font-serif italic text-[#c5a47e] text-sm mb-4 tracking-wide">
           History of art department
         </p>
         <div className="flex items-center justify-center gap-6 md:gap-10">
           <span className="hidden md:block flex-1 h-px bg-[#1a1a1a]/10" />
-          <h2 className="font-playfair text-[clamp(1.8rem,5vw,3rem)] font-light tracking-[0.3em] uppercase leading-tight whitespace-nowrap">
+          <h2 className="font-serif text-[clamp(1.8rem,5vw,3rem)] font-light tracking-[0.28em] uppercase leading-tight whitespace-nowrap">
             National Museum
           </h2>
           <span className="hidden md:block flex-1 h-px bg-[#1a1a1a]/10" />

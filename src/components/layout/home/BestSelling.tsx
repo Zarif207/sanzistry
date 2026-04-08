@@ -48,10 +48,10 @@ export default function BestSelling() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-14 md:mb-18"
         >
-          <p className="font-serif italic text-[#1a1a1a]/45 text-base mb-3">From our store</p>
+          <p className="font-serif italic text-[#c5a47e] text-base mb-3">From our store</p>
           <div className="flex items-center justify-center gap-5">
             <span className="flex-1 max-w-[80px] md:max-w-[140px] h-px bg-[#1a1a1a]/12" />
-            <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] font-light tracking-[0.18em] uppercase">
+            <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] font-light tracking-[0.28em] uppercase">
               Best Selling
             </h2>
             <span className="flex-1 max-w-[80px] md:max-w-[140px] h-px bg-[#1a1a1a]/12" />

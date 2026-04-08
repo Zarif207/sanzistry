@@ -42,17 +42,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} ${playfair.variable}`}>
-      <body className="antialiased bg-[#f5f3ef]">
+      <body className="antialiased bg-[#f8f6f2]">
         <AuthProvider>
           <LoginModalProvider>
             <CartProvider>
               <GSAPInitializer />
               <Topbar />
               <Navbar />
-              <CartDrawer />
-              <LoginModal />
-              <CookieBanner />
-              {children}
+              <div className="relative z-10 bg-[#f8f6f2]">
+                <CartDrawer />
+                <LoginModal />
+                <CookieBanner />
+                {children}
+              </div>
               <Footer />
             </CartProvider>
           </LoginModalProvider>

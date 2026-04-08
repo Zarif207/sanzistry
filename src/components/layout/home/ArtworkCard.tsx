@@ -36,7 +36,7 @@ export default function ArtworkCard({ artwork, index }: ArtworkCardProps) {
             <h3 className="text-white font-serif text-xl font-light leading-snug mb-1">{artwork.title}</h3>
             <p className="text-white/55 text-xs tracking-wide">{artwork.artist}</p>
             {artwork.price && (
-              <p className="text-[#c8a97e] text-xs mt-3 tracking-[0.15em]">{artwork.price}</p>
+              <p className="text-[#c5a47e] text-xs mt-3 tracking-[0.15em]">{artwork.price}</p>
             )}
           </div>
         </div>

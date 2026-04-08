@@ -41,10 +41,10 @@ export default function WorksOfArt() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col justify-center px-8 sm:px-12 md:px-20 lg:px-32 py-24 md:py-32"
         >
-          <p className="font-playfair italic text-[#c5a47e] text-[clamp(1rem,1.5vw,1.1rem)] mb-6">
+          <p className="font-serif italic text-[#c5a47e] text-[clamp(1rem,1.5vw,1.1rem)] mb-6">
             The Museum Archive
           </p>
-          <h2 className="font-playfair text-[clamp(2.4rem,6vw,4rem)] font-light tracking-[0.2em] uppercase mb-8 leading-tight">
+          <h2 className="font-serif text-[clamp(2.4rem,6vw,4.2rem)] font-light tracking-[0.28em] uppercase mb-8 leading-tight">
             Works of Art
           </h2>
           <p className="text-[15px] text-[#1a1a1a]/60 leading-[2] tracking-wide mb-12 max-w-[480px] font-light">
