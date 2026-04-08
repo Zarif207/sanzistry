@@ -91,7 +91,7 @@ export default function NewReadings() {
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section ref={sectionRef} className="bg-white py-24 md:py-40">
+    <section ref={sectionRef} className="bg-canvas py-24 md:py-40">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative">
         
         {/* ── Section Header ── */}

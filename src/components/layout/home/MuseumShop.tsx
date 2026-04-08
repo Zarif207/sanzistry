@@ -153,7 +153,7 @@ export default function MuseumShop() {
   const translateX = -(idx * (100 / VISIBLE));
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-canvas">
 
       {/* ── Header ── */}
       <motion.div
