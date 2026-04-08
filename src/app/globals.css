@@ -16,9 +16,15 @@
   --font-serif: var(--font-cormorant);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
@@ -29,11 +35,20 @@ body {
 }
 
 /* Text selection */
-::selection { background: var(--gold); color: #fff; }
+::selection {
+  background: var(--gold);
+  color: #fff;
+}
 
 /* Scrollbar hide */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* ─── CUT-CORNER BUTTON ─────────────────────────────────────────────
    The image shows: top-left AND top-right corners both cut.
@@ -62,6 +77,7 @@ body {
     color 0.3s ease;
   text-decoration: none;
 }
+
 .btn-cut:hover {
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
   background: var(--gold-light);
@@ -71,19 +87,38 @@ body {
 /* Light variant — on dark/hero backgrounds */
 .btn-cut-light {
   color: #fff;
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
+
 .btn-cut-light:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
-  border-color: rgba(255,255,255,0.8);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* ─── SCROLL LINE ───────────────────────────────────────────────── */
 @keyframes scrollLine {
-  0%   { transform: scaleY(0); transform-origin: top; }
-  50%  { transform: scaleY(1); transform-origin: top; }
-  51%  { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
 }
-.animate-scroll-line { animation: scrollLine 2.2s ease-in-out infinite; }
+
+.animate-scroll-line {
+  animation: scrollLine 2.2s ease-in-out infinite;
+}
