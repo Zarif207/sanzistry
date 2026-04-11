@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const entries = [
   {
@@ -31,18 +35,45 @@ const entries = [
   },
 ];
 
-function TimelineEntry({ entry }: { entry: typeof entries[0] }) {
+function TimelineEntry({ entry, index }: { entry: (typeof entries)[0]; index: number }) {
   const { imageLeft, year, subtitle, title, body, image } = entry;
+  const entryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = entryRef.current;
+    if (!el) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        el,
+        { clipPath: "inset(0 0 100% 0)", opacity: 0.4 },
+        {
+          clipPath: "inset(0 0 0% 0)",
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            end: "top 30%",
+            scrub: 0.8,
+          },
+        }
+      );
+    }, el);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 lg:gap-40 items-center mb-32 md:mb-56 last:mb-0">
-      
-      {/* ── Image Side ── */}
+    <div
+      ref={entryRef}
+      className="relative grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 lg:gap-40 items-center mb-32 md:mb-56 last:mb-0"
+      style={{ willChange: "clip-path, opacity" }}
+    >
       <motion.div
-        initial={{ opacity: 0, x: imageLeft ? -60 : 60 }}
+        initial={{ opacity: 0, x: imageLeft ? -40 : 40 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className={`relative aspect-[4/5] overflow-hidden group ${imageLeft ? "md:order-1" : "md:order-2"}`}
       >
         <Image
@@ -55,12 +86,11 @@ function TimelineEntry({ entry }: { entry: typeof entries[0] }) {
         <div className="absolute inset-0 bg-[#1a1a1a]/5 group-hover:bg-transparent transition-colors duration-1000" />
       </motion.div>
 
-      {/* ── Text Side ── */}
       <motion.div
-        initial={{ opacity: 0, x: imageLeft ? 60 : -60 }}
+        initial={{ opacity: 0, x: imageLeft ? 40 : -40 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1.1, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         className={`flex flex-col ${imageLeft ? "md:order-2" : "md:order-1 text-right"}`}
       >
         <span className="font-serif italic text-[#c5a47e] text-2xl mb-4 tracking-widest">{year}</span>
@@ -73,7 +103,6 @@ function TimelineEntry({ entry }: { entry: typeof entries[0] }) {
         </p>
       </motion.div>
 
-      {/* ── Year Marker Dot on Center Line ── */}
       <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
         <div className="w-[10px] h-[10px] rounded-full bg-[#c5a47e] border border-white" />
       </div>
@@ -83,18 +112,17 @@ function TimelineEntry({ entry }: { entry: typeof entries[0] }) {
 
 export default function NewReadings() {
   const sectionRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
   });
-  
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section ref={sectionRef} className="bg-canvas py-24 md:py-40">
+    <section ref={sectionRef} className="bg-canvas py-24 md:py-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative">
-        
-        {/* ── Section Header ── */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -102,9 +130,7 @@ export default function NewReadings() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-32 md:mb-48"
         >
-          <p className="font-serif italic text-[#c5a47e] text-base mb-4 tracking-wide">
-            Our Legacy
-          </p>
+          <p className="font-serif italic text-[#c5a47e] text-base mb-4 tracking-wide">Our Legacy</p>
           <div className="flex items-center justify-center gap-10">
             <span className="hidden md:block flex-1 h-px bg-[#1a1a1a]/10" />
             <h2 className="font-serif text-[clamp(2rem,6vw,3.5rem)] font-light tracking-[0.28em] uppercase leading-tight whitespace-nowrap">
@@ -114,23 +140,19 @@ export default function NewReadings() {
           </div>
         </motion.div>
 
-        {/* ── Timeline Container ── */}
         <div className="relative">
-          {/* Vertical center line */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[#1a1a1a]/10">
             <motion.div
               className="absolute top-0 left-0 w-full bg-[#c5a47e] origin-top h-full"
               style={{ scaleY: lineScaleY }}
             />
           </div>
-
           <div className="space-y-32">
-            {entries.map((entry) => (
-              <TimelineEntry key={entry.year} entry={entry} />
+            {entries.map((entry, i) => (
+              <TimelineEntry key={entry.year} entry={entry} index={i} />
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
