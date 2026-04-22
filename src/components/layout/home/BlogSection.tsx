@@ -27,7 +27,7 @@ const posts = [
   },
   {
     id: 3,
-    date: "September 15, 2019",
+    date: "September 16, 2019",
     title: "The Street Painting Scene",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
