@@ -10,7 +10,7 @@ const posts = [
     date: "September 15, 2019",
     title: "November in the Museum",
     excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
     href: "/blog",
