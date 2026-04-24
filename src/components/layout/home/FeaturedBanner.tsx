@@ -37,7 +37,7 @@ export default function FeaturedBanner() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[500px] md:h-[700px] overflow-hidden"
+      className="relative w-full h-125 md:h-175 overflow-hidden"
     >
       {/* Background image with parallax */}
       <div
@@ -62,7 +62,7 @@ export default function FeaturedBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white p-10 md:p-14 max-w-[380px] w-full shadow-[0_20px_70px_rgba(0,0,0,0.12)] relative z-10"
+          className="bg-white p-10 md:p-14 max-w-95 w-full shadow-[0_20px_70px_rgba(0,0,0,0.12)] relative z-10"
         >
           <p className="text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/35 mb-6">
             Featured Highlight

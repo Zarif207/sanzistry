@@ -40,7 +40,7 @@ const posts = [
 export default function BlogSection() {
   return (
     <section className="py-24 md:py-40 bg-[#f8f6f2]">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-350 mx-auto px-6 md:px-12">
 
         {/* HEADER */}
         <motion.div
@@ -55,11 +55,11 @@ export default function BlogSection() {
           </p>
 
           <div className="flex items-center justify-center gap-6 md:gap-14">
-            <span className="flex-1 max-w-[200px] h-px bg-black/10" />
+            <span className="flex-1 max-w-50 h-px bg-black/10" />
             <h2 className="font-serif text-[clamp(1.5rem,5vw,3rem)] tracking-[0.34em] uppercase font-light whitespace-nowrap">
               Latest Blog Posts
             </h2>
-            <span className="flex-1 max-w-[200px] h-px bg-black/10" />
+            <span className="flex-1 max-w-50 h-px bg-black/10" />
           </div>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function BlogSection() {
                 <Link
                   href={post.href}
                   className={`block relative overflow-hidden bg-[#ede9e2] w-full
-                    ${isMiddle ? "aspect-[3/4.5]" : "aspect-[3/4]"}
+                    ${isMiddle ? "aspect-3/4.5" : "aspect-3/4"}
                   `}
                 >
                   <Image
@@ -107,7 +107,7 @@ export default function BlogSection() {
                     {post.date}
                   </p>
 
-                  <h3 className="font-serif text-[1.1rem] md:text-[1.3rem] uppercase tracking-[0.1em] mb-6 text-[#1a1a1a] leading-tight group-hover:text-[#c5a47e] transition-colors duration-300">
+                  <h3 className="font-serif text-[1.1rem] md:text-[1.3rem] uppercase tracking-widest mb-6 text-[#1a1a1a] leading-tight group-hover:text-[#c5a47e] transition-colors duration-300">
                     <Link href={post.href}>{post.title}</Link>
                   </h3>
 
