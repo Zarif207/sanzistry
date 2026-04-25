@@ -27,7 +27,7 @@ export default function StorySection() {
       </motion.div>
 
       {/* ── 3-Column Layout ── */}
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+      <div className="max-w-350 mx-auto px-8 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 items-center">
           
           {/* Left: small paragraph text */}
@@ -51,7 +51,7 @@ export default function StorySection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="order-1 md:order-2 relative aspect-[3/4] overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
+            className="order-1 md:order-2 relative aspect-3/4 overflow-hidden grayscale-20 hover:grayscale-0 transition-all duration-1000"
           >
             <Image
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80"

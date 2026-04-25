@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function QuoteSection() {
   return (
     <section className="py-24 md:py-40 bg-[#f8f6f2]">
-      <div className="max-w-[1000px] mx-auto px-8 text-center">
+      <div className="max-w-250 mx-auto px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function QuoteSection() {
             — Paul Klee, 1920
           </p>
           <div className="mt-16 flex justify-center">
-             <div className="w-px h-24 bg-gradient-to-b from-[#c5a47e] to-transparent opacity-30" />
+             <div className="w-px h-24 bg-linear-to-b from-[#c5a47e] to-transparent opacity-30" />
           </div>
         </motion.div>
       </div>

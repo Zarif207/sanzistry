@@ -38,13 +38,13 @@ export default function MobileNav() {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-[150] bg-black/25 md:hidden"
+              className="fixed inset-0 z-150 bg-black/25 md:hidden"
               onClick={() => setOpen(false)}
             />
             <motion.div
               initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
               transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 left-0 bottom-0 z-[200] w-[280px] bg-[#f5f3ef] flex flex-col md:hidden"
+              className="fixed top-0 left-0 bottom-0 z-200 w-70 bg-[#f5f3ef] flex flex-col md:hidden"
             >
               <div className="flex items-center justify-between px-6 h-14 border-b border-[#1a1a1a]/08">
                 <span className="font-serif text-base tracking-widest text-[#1a1a1a]/65">Sanzistry</span>

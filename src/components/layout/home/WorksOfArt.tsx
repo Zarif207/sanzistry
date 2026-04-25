@@ -31,7 +31,7 @@ export default function WorksOfArt() {
 
   return (
     <section ref={containerRef} className="bg-[#f8f6f2] overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[600px] md:min-h-[700px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 min-h-150 md:min-h-175">
 
         {/* Left — text */}
         <motion.div
@@ -47,7 +47,7 @@ export default function WorksOfArt() {
           <h2 className="font-serif text-[clamp(2.4rem,6vw,4.2rem)] font-light tracking-[0.28em] uppercase mb-8 leading-tight">
             Works of Art
           </h2>
-          <p className="text-[15px] text-[#1a1a1a]/60 leading-[2] tracking-wide mb-12 max-w-[480px] font-light">
+          <p className="text-[15px] text-[#1a1a1a]/60 leading-loose tracking-wide mb-12 max-w-120 font-light">
             Each piece in our collection tells a story of cultural resonance and stylistic innovation. 
             From the subtle brushstrokes of the masters to the bold forms of modern pioneers, 
             our archive is a living history of the human imagination.
@@ -60,7 +60,7 @@ export default function WorksOfArt() {
         </motion.div>
 
         {/* Right — full-bleed image with GSAP Parallax */}
-        <div className="relative min-h-[500px] md:min-h-full overflow-hidden group">
+        <div className="relative min-h-125 md:min-h-full overflow-hidden group">
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,7 +73,7 @@ export default function WorksOfArt() {
                 src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1600&q=85"
                 alt="Classical Artwork"
                 fill
-                className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 grayscale-[10%] group-hover:grayscale-0"
+                className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 grayscale-10 group-hover:grayscale-0"
                 priority
               />
               <div className="absolute inset-0 bg-[#1a1a1a]/5 group-hover:bg-transparent transition-colors duration-700" />

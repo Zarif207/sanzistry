@@ -17,10 +17,10 @@ export default function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-[1400px] mx-auto px-8 md:px-12 pt-16 md:pt-24 pb-10"
+        className="max-w-350 mx-auto px-8 md:px-12 pt-16 md:pt-24 pb-10"
       >
         {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-16 pb-16 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-16 pb-16 border-b border-white/6">
 
           {/* Brand */}
           <div className="space-y-6">
@@ -32,7 +32,7 @@ export default function Footer() {
                 Sanzistry
               </span>
             </div>
-            <p className="text-[12px] leading-[1.85] text-white/30 max-w-[240px] font-light tracking-wide">
+            <p className="text-[12px] leading-[1.85] text-white/30 max-w-60 font-light tracking-wide">
               673 12 Constitution Lane Massillion, <br />
               05765 New York, NY
             </p>

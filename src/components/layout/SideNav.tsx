@@ -51,7 +51,7 @@ export default function SideNav() {
 
   return (
     <aside
-      className={`hidden md:flex fixed top-0 left-0 h-screen w-[220px] z-50 flex-col transition-all duration-500 ${
+      className={`hidden md:flex fixed top-0 left-0 h-screen w-55 z-50 flex-col transition-all duration-500 ${
         isDark
           ? "bg-transparent"
           : "bg-[#f5f3ef]/96 backdrop-blur-sm border-r border-[#1a1a1a]/06"
@@ -95,14 +95,14 @@ export default function SideNav() {
                 }`}
               >
                 <span className="flex items-center gap-2.5">
-                  <span className={`w-1 h-1 rounded-full flex-shrink-0 transition-all duration-300 ${
+                  <span className={`w-1 h-1 rounded-full shrink-0 transition-all duration-300 ${
                     active ? "bg-[#c5a47e]" : "bg-transparent group-hover:bg-[#c5a47e]/40"
                   }`} />
                   {item.label}
                 </span>
                 {item.children && (
                   <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
-                    className={`transition-transform duration-300 flex-shrink-0 ${openItem === item.label ? "rotate-90" : ""} ${isDark ? "text-white/30" : "text-[#1a1a1a]/25"}`}
+                    className={`transition-transform duration-300 shrink-0 ${openItem === item.label ? "rotate-90" : ""} ${isDark ? "text-white/30" : "text-[#1a1a1a]/25"}`}
                   >
                     <path d="M1 1l2.5 2.5L6 1" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
                   </svg>
@@ -117,7 +117,7 @@ export default function SideNav() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -8 }}
                     transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute left-full top-0 ml-2 bg-white shadow-[0_8px_40px_rgba(0,0,0,0.11)] min-w-[170px] py-2 z-50"
+                    className="absolute left-full top-0 ml-2 bg-white shadow-[0_8px_40px_rgba(0,0,0,0.11)] min-w-42.5 py-2 z-50"
                     onMouseEnter={() => enter(item.label)}
                     onMouseLeave={leave}
                   >
@@ -127,7 +127,7 @@ export default function SideNav() {
                       <Link
                         key={child.label}
                         href={child.href}
-                        className="relative z-10 block px-5 py-2.5 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
+                        className="relative z-10 block px-5 py-2.5 text-[12px] tracking-widest text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
                       >
                         {child.label}
                       </Link>

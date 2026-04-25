@@ -83,10 +83,10 @@ export default function Navbar() {
             : "top-9 bg-transparent"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-8 md:px-10 h-[68px] flex items-center justify-between gap-8">
+        <div className="max-w-350 mx-auto px-8 md:px-10 h-17 flex items-center justify-between gap-8">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2.5">
+          <Link href="/" className="shrink-0 flex items-center gap-2.5">
             <span className={`w-10 h-10 border flex items-center justify-center font-serif text-base font-light tracking-widest transition-colors duration-500 ${
               isDark ? "border-white/55 text-white" : "border-[#1a1a1a]/35 text-[#1a1a1a]"
             }`}>
@@ -126,7 +126,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full left-0 mt-4 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)] min-w-[190px] py-2 z-50"
+                      className="absolute top-full left-0 mt-4 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)] min-w-47.5 py-2 z-50"
                       onMouseEnter={() => handleEnter(item.label)}
                       onMouseLeave={handleLeave}
                     >
@@ -134,7 +134,7 @@ export default function Navbar() {
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-6 py-3 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
+                          className="block px-6 py-3 text-[12px] tracking-widest text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
                         >
                           {child.label}
                         </Link>
@@ -176,14 +176,14 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full right-0 mt-4 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)] min-w-[160px] py-2 z-50"
+                      className="absolute top-full right-0 mt-4 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)] min-w-40 py-2 z-50"
                     >
-                      <Link href="/account" className="block px-6 py-3 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200">
+                      <Link href="/account" className="block px-6 py-3 text-[12px] tracking-widest text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200">
                         Profile
                       </Link>
                       <button
                         onClick={() => { logout(); setAccountOpen(false); }}
-                        className="w-full text-left block px-6 py-3 text-[12px] tracking-[0.1em] text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
+                        className="w-full text-left block px-6 py-3 text-[12px] tracking-widest text-[#1a1a1a]/55 hover:text-[#1a1a1a] hover:bg-[#f5f3ef] transition-colors duration-200"
                       >
                         Logout
                       </button>
@@ -239,9 +239,9 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[200] bg-[#f5f3ef]"
+            className="fixed inset-0 z-200 bg-[#f5f3ef]"
           >
-            <div className="flex justify-between items-center px-8 h-[68px] border-b border-[#1a1a1a]/08">
+            <div className="flex justify-between items-center px-8 h-17 border-b border-[#1a1a1a]/08">
               <span className="font-serif text-lg tracking-widest text-[#1a1a1a]/70">Sanzistry</span>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -300,7 +300,7 @@ export default function Navbar() {
                             key={child.label}
                             href={child.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-2 text-[13px] tracking-[0.1em] text-[#1a1a1a]/45 hover:text-[#1a1a1a] transition-colors"
+                            className="block py-2 text-[13px] tracking-widest text-[#1a1a1a]/45 hover:text-[#1a1a1a] transition-colors"
                           >
                             {child.label}
                           </Link>

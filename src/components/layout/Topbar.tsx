@@ -5,7 +5,7 @@ const socials = ["Facebook", "Instagram", "Twitter"];
 export default function Topbar() {
   return (
     <div className="w-full bg-[#1a1a1a] text-[#9a9a8a] hidden md:block">
-      <div className="max-w-[1400px] mx-auto px-8 h-9 flex items-center justify-between">
+      <div className="max-w-350 mx-auto px-8 h-9 flex items-center justify-between">
         {/* Left info */}
         <div className="flex items-center gap-6 text-[11px] tracking-wide">
           <span className="flex items-center gap-1.5">
