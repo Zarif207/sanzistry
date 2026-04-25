@@ -29,7 +29,7 @@ export default function Featured() {
 
   return (
     <section className="py-28 md:py-36 bg-[#edeae4] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 mb-14">
+      <div className="max-w-350 mx-auto px-8 md:px-12 mb-14">
         <SectionHeader eyebrow="Spotlight" title="Featured Works" />
       </div>
       <div
@@ -45,7 +45,7 @@ export default function Featured() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.85, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex-shrink-0 group overflow-hidden"
+            className="relative shrink-0 group overflow-hidden"
             style={{ width: "clamp(260px, 36vw, 480px)", scrollSnapAlign: "start" }}
           >
             <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
@@ -55,10 +55,10 @@ export default function Featured() {
                 fill
                 sizes="(max-width: 640px) 80vw, 36vw"
                 style={{ objectFit: "cover" }}
-                className="transition-transform duration-[1000ms] ease-out group-hover:scale-[1.04]"
+                className="transition-transform duration-1000 ease-out group-hover:scale-[1.04]"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <p className="text-white/45 text-[10px] tracking-[0.3em] uppercase mb-2">{artwork.category}</p>
                 <h3 className="text-white font-serif text-2xl font-light leading-snug">{artwork.title}</h3>
@@ -70,7 +70,7 @@ export default function Featured() {
             </div>
           </motion.div>
         ))}
-        <div className="flex-shrink-0 w-8 md:w-12" aria-hidden />
+        <div className="shrink-0 w-8 md:w-12" aria-hidden />
       </div>
     </section>
   );

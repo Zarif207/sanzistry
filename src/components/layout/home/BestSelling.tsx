@@ -38,7 +38,7 @@ export default function BestSelling() {
 
   return (
     <section className="py-24 md:py-32 bg-[#f5f3ef]">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+      <div className="max-w-350 mx-auto px-8 md:px-12">
 
         {/* Section header — centered with flanking lines */}
         <motion.div
@@ -50,11 +50,11 @@ export default function BestSelling() {
         >
           <p className="font-serif italic text-[#c5a47e] text-base mb-3">From our store</p>
           <div className="flex items-center justify-center gap-5">
-            <span className="flex-1 max-w-[80px] md:max-w-[140px] h-px bg-[#1a1a1a]/12" />
+            <span className="flex-1 max-w-20 md:max-w-35 h-px bg-[#1a1a1a]/12" />
             <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] font-light tracking-[0.28em] uppercase">
               Best Selling
             </h2>
-            <span className="flex-1 max-w-[80px] md:max-w-[140px] h-px bg-[#1a1a1a]/12" />
+            <span className="flex-1 max-w-20 md:max-w-35 h-px bg-[#1a1a1a]/12" />
           </div>
           <div className="w-8 h-px bg-[#c5a47e] mx-auto mt-5" />
         </motion.div>
@@ -78,7 +78,7 @@ export default function BestSelling() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   style={{ objectFit: "cover" }}
-                  className="transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
+                  className="transition-transform duration-900 ease-out group-hover:scale-[1.05]"
                   loading="lazy"
                 />
                 {/* Hover overlay with Add to Cart */}

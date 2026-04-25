@@ -31,7 +31,7 @@ export default function ContactSection() {
       </div>
 
       {/* White card */}
-      <div className="relative z-10 max-w-[1000px] mx-auto px-6 py-16 md:py-24">
+      <div className="relative z-10 max-w-250 mx-auto px-6 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

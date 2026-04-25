@@ -76,11 +76,11 @@ export default function CurrentlyOnView() {
           {[...EXHIBITIONS, ...EXHIBITIONS].map((ex, i) => (
             <div
               key={`${ex.id}-${i}`}
-              className="inline-block flex-shrink-0 px-6 sm:px-10 group"
+              className="inline-block shrink-0 px-6 sm:px-10 group"
               style={{ width: "clamp(280px, 35vw, 420px)" }}
             >
               {/* Image with Hover Effect */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#ede9e2] mb-10">
+              <div className="relative aspect-4/5 overflow-hidden bg-[#ede9e2] mb-10">
                 <Image
                   src={ex.image}
                   alt={ex.title}
