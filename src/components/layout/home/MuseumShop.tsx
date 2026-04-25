@@ -165,13 +165,13 @@ export default function MuseumShop() {
       >
         <p className="type-eyebrow mb-3">Our products</p>
         <div className="flex items-center justify-center gap-5 md:gap-8 mb-5">
-          <span className="flex-1 max-w-[80px] sm:max-w-[160px] md:max-w-[240px] h-px bg-black/10" />
+          <span className="flex-1 max-w-20 sm:max-w-40 md:max-w-60 h-px bg-black/10" />
           <h2 className="type-heading text-[clamp(1.5rem,5vw,3rem)] whitespace-nowrap">
             Museum Shop
           </h2>
-          <span className="flex-1 max-w-[80px] sm:max-w-[160px] md:max-w-[240px] h-px bg-black/10" />
+          <span className="flex-1 max-w-20 sm:max-w-40 md:max-w-60 h-px bg-black/10" />
         </div>
-        <p className="type-body max-w-[480px] mx-auto text-center">
+        <p className="type-body max-w-120 mx-auto text-center">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
           incididunt labore et dolore magna aliqua
         </p>

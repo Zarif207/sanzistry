@@ -74,14 +74,14 @@ function TimelineEntry({ entry, index }: { entry: (typeof entries)[0]; index: nu
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative aspect-[4/5] overflow-hidden group ${imageLeft ? "md:order-1" : "md:order-2"}`}
+        className={`relative aspect-4/5 overflow-hidden group ${imageLeft ? "md:order-1" : "md:order-2"}`}
       >
         <Image
           src={image}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 45vw"
-          className="object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+          className="object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 grayscale-10 group-hover:grayscale-0"
         />
         <div className="absolute inset-0 bg-[#1a1a1a]/5 group-hover:bg-transparent transition-colors duration-1000" />
       </motion.div>
@@ -98,13 +98,13 @@ function TimelineEntry({ entry, index }: { entry: (typeof entries)[0]; index: nu
         <h3 className="font-serif text-[clamp(1.8rem,4vw,3.2rem)] font-light tracking-[0.18em] uppercase mb-8 text-[#1a1a1a] leading-[1.2]">
           {title}
         </h3>
-        <p className={`text-[15px] text-[#1a1a1a]/55 leading-[2] tracking-wide font-light max-w-[480px] ${imageLeft ? "" : "ml-auto"}`}>
+        <p className={`text-[15px] text-[#1a1a1a]/55 leading-loose tracking-wide font-light max-w-120 ${imageLeft ? "" : "ml-auto"}`}>
           {body}
         </p>
       </motion.div>
 
       <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
-        <div className="w-[10px] h-[10px] rounded-full bg-[#c5a47e] border border-white" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#c5a47e] border border-white" />
       </div>
     </div>
   );
@@ -121,7 +121,7 @@ export default function NewReadings() {
 
   return (
     <section ref={sectionRef} className="bg-canvas py-24 md:py-40 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative">
+      <div className="max-w-350 mx-auto px-8 md:px-12 relative">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

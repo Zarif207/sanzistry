@@ -108,7 +108,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[600px] overflow-hidden flex items-center justify-center"
+      className="relative w-full h-screen min-h-150 overflow-hidden flex items-center justify-center"
     >
       {/* Slides */}
       {slides.map((s, i) => (
@@ -134,7 +134,7 @@ export default function Hero() {
       ))}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/40 via-black/30 to-black/55 pointer-events-none" />
+      <div className="absolute inset-0 z-20 bg-linear-to-b from-black/40 via-black/30 to-black/55 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-30 text-center text-white px-6 max-w-5xl mx-auto">
@@ -148,7 +148,7 @@ export default function Hero() {
 
         {/* Title with flanking lines */}
         <div className="flex items-center justify-center gap-6 sm:gap-10 mb-8">
-          <span className="flex-1 max-w-[80px] sm:max-w-[140px] h-px bg-white/30" />
+          <span className="flex-1 max-w-20 sm:max-w-35 h-px bg-white/30" />
           <h1
             ref={titleRef}
             className="font-serif text-[clamp(2.8rem,8vw,6.5rem)] tracking-[0.22em] leading-none opacity-0"
@@ -156,7 +156,7 @@ export default function Hero() {
           >
             {slide.title}
           </h1>
-          <span className="flex-1 max-w-[80px] sm:max-w-[140px] h-px bg-white/30" />
+          <span className="flex-1 max-w-20 sm:max-w-35 h-px bg-white/30" />
         </div>
 
         <div ref={ctaRef} className="opacity-0">
