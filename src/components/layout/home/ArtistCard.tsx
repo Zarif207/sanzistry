@@ -13,17 +13,17 @@ export default function ArtistCard({ artist, index }: { artist: Artist; index: n
       transition={{ duration: 0.85, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="group cursor-pointer"
     >
-      <div className="relative overflow-hidden aspect-[3/4] bg-[#ede9e3] mb-5">
+      <div className="relative overflow-hidden aspect-3/4 bg-[#ede9e3] mb-5">
         <Image
           src={artist.image}
           alt={artist.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           style={{ objectFit: "cover", objectPosition: "center top" }}
-          className="transition-all duration-[1000ms] ease-out group-hover:scale-[1.04] grayscale group-hover:grayscale-0"
+          className="transition-all duration-1000 ease-out group-hover:scale-[1.04] grayscale group-hover:grayscale-0"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
           <p className="text-white/65 text-[10px] tracking-[0.28em] uppercase">{artist.specialty}</p>
         </div>

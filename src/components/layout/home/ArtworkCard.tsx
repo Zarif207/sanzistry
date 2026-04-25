@@ -18,14 +18,14 @@ export default function ArtworkCard({ artwork, index }: ArtworkCardProps) {
       transition={{ duration: 0.85, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
       className="group cursor-pointer"
     >
-      <div className="relative overflow-hidden aspect-[3/4] bg-[#ede9e3]">
+      <div className="relative overflow-hidden aspect-3/4 bg-[#ede9e3]">
         <Image
           src={artwork.image}
           alt={artwork.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
-          className="transition-transform duration-[1000ms] ease-out group-hover:scale-[1.05]"
+          className="transition-transform duration-1000 ease-out group-hover:scale-[1.05]"
           loading="lazy"
         />
         {/* Overlay */}
