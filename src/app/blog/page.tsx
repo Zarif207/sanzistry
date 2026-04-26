@@ -15,13 +15,13 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <main className="pt-14 md:pt-[104px]">
+    <main className="pt-14 md:pt-26">
       <PageBanner
         title="Blog"
         image="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1920&q=75"
       />
 
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20">
+      <div className="max-w-350 mx-auto px-8 md:px-12 py-20">
         {/* Featured post */}
         <motion.article
           initial={{ opacity: 0, y: 24 }}
@@ -29,14 +29,14 @@ export default function BlogPage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="group grid md:grid-cols-2 gap-10 mb-20 pb-20 border-b border-[#1a1a1a]/08 cursor-pointer"
         >
-          <div className="relative overflow-hidden aspect-[16/10] bg-[#ede9e3]">
+          <div className="relative overflow-hidden aspect-16/10 bg-[#ede9e3]">
             <Image
               src={posts[0].image}
               alt={posts[0].title}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
-              className="transition-transform duration-[1000ms] group-hover:scale-[1.04]"
+              className="transition-transform duration-1000 group-hover:scale-[1.04]"
               loading="eager"
             />
           </div>
@@ -67,14 +67,14 @@ export default function BlogPage() {
               transition={{ duration: 0.75, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden aspect-[16/10] bg-[#ede9e3] mb-5">
+              <div className="relative overflow-hidden aspect-16/10 bg-[#ede9e3] mb-5">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"
                   style={{ objectFit: "cover" }}
-                  className="transition-transform duration-[1000ms] group-hover:scale-[1.05]"
+                  className="transition-transform duration-1000 group-hover:scale-[1.05]"
                   loading="lazy"
                 />
               </div>

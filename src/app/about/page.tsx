@@ -14,14 +14,14 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <main className="pt-14 md:pt-[104px]">
+    <main className="pt-14 md:pt-26">
       <PageBanner
         title="About"
         image="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=1920&q=75"
       />
 
       {/* Mission */}
-      <section className="max-w-[1400px] mx-auto px-8 md:px-12 py-24 md:py-32">
+      <section className="max-w-350 mx-auto px-8 md:px-12 py-24 md:py-32">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -48,7 +48,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-[4/5] overflow-hidden"
+            className="relative aspect-4/5 overflow-hidden"
           >
             <Image
               src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=900&q=75"
@@ -64,7 +64,7 @@ export default function AboutPage() {
 
       {/* Stats */}
       <section className="bg-[#1a1a1a] py-20">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+        <div className="max-w-350 mx-auto px-8 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {stats.map((stat, i) => (
               <motion.div
@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="max-w-[1400px] mx-auto px-8 md:px-12 py-24 md:py-32">
+      <section className="max-w-350 mx-auto px-8 md:px-12 py-24 md:py-32">
         <p className="text-[10px] tracking-[0.45em] uppercase text-[#1a1a1a]/35 mb-3">People</p>
         <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-light mb-2">Our Team</h2>
         <div className="w-8 h-px bg-[#c8a97e] mb-14" />
@@ -102,14 +102,14 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: i * 0.1 }}
               className="group"
             >
-              <div className="relative overflow-hidden aspect-[3/4] bg-[#ede9e3] mb-5">
+              <div className="relative overflow-hidden aspect-3/4 bg-[#ede9e3] mb-5">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"
                   style={{ objectFit: "cover", objectPosition: "center top" }}
-                  className="transition-transform duration-[1000ms] group-hover:scale-[1.04] grayscale group-hover:grayscale-0"
+                  className="transition-transform duration-1000 group-hover:scale-[1.04] grayscale group-hover:grayscale-0"
                   loading="lazy"
                 />
               </div>
