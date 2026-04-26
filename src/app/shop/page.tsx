@@ -50,13 +50,13 @@ export default function ShopPage() {
   };
 
   return (
-    <main className="pt-14 md:pt-[104px]">
+    <main className="pt-14 md:pt-26">
       <PageBanner
         title="Shop"
         image="https://images.unsplash.com/photo-1549490349-8643362247b5?w=1920&q=75"
       />
 
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-16">
+      <div className="max-w-350 mx-auto px-8 md:px-12 py-16">
         <div className="flex flex-col md:flex-row gap-12">
 
           {/* Main content */}
@@ -95,7 +95,7 @@ export default function ShopPage() {
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       style={{ objectFit: "cover" }}
-                      className="transition-transform duration-[900ms] group-hover:scale-[1.05]"
+                      className="transition-transform duration-900 group-hover:scale-[1.05]"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
@@ -121,7 +121,7 @@ export default function ShopPage() {
           </div>
 
           {/* Sidebar */}
-          <aside className="w-full md:w-[260px] flex-shrink-0">
+          <aside className="w-full md:w-65 shrink-0">
             <div className="mb-10">
               <h3 className="text-[11px] tracking-[0.3em] uppercase text-[#1a1a1a]/50 mb-5">Filter</h3>
               <div className="w-full h-px bg-[#1a1a1a]/10 mb-5" />
@@ -158,7 +158,7 @@ export default function ShopPage() {
               <div className="space-y-4">
                 {featuredArtworks.slice(0, 2).map((item) => (
                   <div key={item.id} className="flex gap-3 group cursor-pointer">
-                    <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden bg-[#ede9e3]">
+                    <div className="relative w-16 h-16 shrink-0 overflow-hidden bg-[#ede9e3]">
                       <Image src={item.image} alt={item.title} fill sizes="64px"
                         style={{ objectFit: "cover" }}
                         className="transition-transform duration-700 group-hover:scale-[1.08]"
