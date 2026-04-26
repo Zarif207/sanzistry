@@ -20,7 +20,7 @@ export default function EventsPage() {
         image="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=1920&q=75"
       />
 
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20">
+      <div className="max-w-350 mx-auto px-8 md:px-12 py-20">
         <div className="space-y-0">
           {events.map((event, i) => (
             <motion.article
@@ -39,7 +39,7 @@ export default function EventsPage() {
                   fill
                   sizes="280px"
                   style={{ objectFit: "cover" }}
-                  className="transition-transform duration-[1000ms] group-hover:scale-[1.05]"
+                  className="transition-transform duration-1000 group-hover:scale-[1.05]"
                   loading="lazy"
                 />
               </div>
@@ -66,7 +66,7 @@ export default function EventsPage() {
               </div>
 
               {/* CTA */}
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Button href="/tickets">Buy Tickets</Button>
               </div>
             </motion.article>

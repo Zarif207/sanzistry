@@ -55,7 +55,7 @@ export default function GalleryPage() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
-                  className="transition-transform duration-[1000ms] group-hover:scale-[1.05]"
+                  className="transition-transform duration-1000 group-hover:scale-[1.05]"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/45 transition-all duration-700" />
