@@ -20,7 +20,7 @@ export default function GalleryPage() {
         image="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1920&q=75"
       />
 
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20">
+      <div className="max-w-350 mx-auto px-8 md:px-12 py-20">
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-2 mb-14">
           {categories.map((cat) => (
@@ -48,7 +48,7 @@ export default function GalleryPage() {
               transition={{ duration: 0.7, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden aspect-[3/4] bg-[#ede9e3]">
+              <div className="relative overflow-hidden aspect-3/4 bg-[#ede9e3]">
                 <Image
                   src={artwork.image}
                   alt={artwork.title}

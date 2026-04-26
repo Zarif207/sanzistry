@@ -14,7 +14,7 @@ const events = [
 
 export default function EventsPage() {
   return (
-    <main className="pt-14 md:pt-[104px]">
+    <main className="pt-14 md:pt-26">
       <PageBanner
         title="Events"
         image="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=1920&q=75"
@@ -32,7 +32,7 @@ export default function EventsPage() {
               className="group grid md:grid-cols-[280px_1fr_auto] gap-8 items-center py-10 border-b border-[#1a1a1a]/08 cursor-pointer"
             >
               {/* Image */}
-              <div className="relative overflow-hidden aspect-[16/9] bg-[#ede9e3]">
+              <div className="relative overflow-hidden aspect-video bg-[#ede9e3]">
                 <Image
                   src={event.image}
                   alt={event.title}
