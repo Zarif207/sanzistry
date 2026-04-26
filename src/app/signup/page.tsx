@@ -32,12 +32,12 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-screen pt-14 md:pt-[104px] flex items-center justify-center px-5">
+    <main className="min-h-screen pt-14 md:pt-26 flex items-center justify-center px-5">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-[440px]"
+        className="w-full max-w-110"
       >
         {/* Header */}
         <div className="text-center mb-10">
