@@ -18,7 +18,7 @@ export default function CartPage() {
     <main className="pt-14 md:pt-[104px] min-h-screen">
       {/* Page title */}
       <div className="border-b border-[#1a1a1a]/08 bg-[#f5f3ef]">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-10">
+        <div className="max-w-350 mx-auto px-8 md:px-12 py-10">
           <p className="text-[10px] tracking-[0.45em] uppercase text-[#1a1a1a]/35 mb-2">Your Selection</p>
           <h1 className="font-serif text-4xl md:text-5xl font-light tracking-[0.12em]">Shopping Cart</h1>
         </div>
@@ -58,7 +58,7 @@ export default function CartPage() {
                 >
                   {/* Product */}
                   <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 flex-shrink-0 bg-[#ede9e3] overflow-hidden">
+                    <div className="relative w-16 h-16 shrink-0 bg-[#ede9e3] overflow-hidden">
                       <Image src={item.image} alt={item.name} fill sizes="64px" style={{ objectFit: "cover" }} />
                     </div>
                     <p className="text-[13px] tracking-[0.08em] text-[#1a1a1a]/75 leading-snug">{item.name}</p>
