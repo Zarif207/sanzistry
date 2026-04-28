@@ -15,7 +15,7 @@ export default function CartPage() {
   const total = subtotal + shippingCost;
 
   return (
-    <main className="pt-14 md:pt-[104px] min-h-screen">
+    <main className="pt-14 md:pt-26 min-h-screen">
       {/* Page title */}
       <div className="border-b border-[#1a1a1a]/08 bg-[#f5f3ef]">
         <div className="max-w-350 mx-auto px-8 md:px-12 py-10">
