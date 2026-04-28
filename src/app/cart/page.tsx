@@ -119,7 +119,7 @@ export default function CartPage() {
             </div>
 
             {/* ── Cart totals ── */}
-            <div className="w-full lg:w-[340px] flex-shrink-0">
+            <div className="w-full lg:w-[340px] shrink-0">
               <div className="bg-white p-8 border border-[#1a1a1a]/07">
                 <h2 className="font-serif text-xl font-light tracking-wide mb-6 pb-5 border-b border-[#1a1a1a]/08">
                   Cart Totals
