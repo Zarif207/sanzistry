@@ -24,7 +24,7 @@ export default function CartPage() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-14">
+      <div className="max-w-350 mx-auto px-8 md:px-12 py-14">
         {items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-28 gap-6 text-center">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c5a47e" strokeWidth="1.1">
@@ -119,7 +119,7 @@ export default function CartPage() {
             </div>
 
             {/* ── Cart totals ── */}
-            <div className="w-full lg:w-[340px] shrink-0">
+            <div className="w-full lg:w-85 shrink-0">
               <div className="bg-white p-8 border border-[#1a1a1a]/07">
                 <h2 className="font-serif text-xl font-light tracking-wide mb-6 pb-5 border-b border-[#1a1a1a]/08">
                   Cart Totals
