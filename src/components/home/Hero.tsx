@@ -5,7 +5,7 @@ const Hero = () => {
         Discover Digital Art
       </h1>
       <p className="text-gray-500 max-w-xl">
-        A curated space where artists showcase and sell their creations.
+        A curated space where artists showcase and sell their creations
       </p>
     </section>
   );
