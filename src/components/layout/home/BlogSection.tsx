@@ -8,9 +8,9 @@ const posts = [
   {
     id: 1,
     date: "September 15, 2019",
-    title: "Nov in the Museum",
+    title: "November in the Museum",
     excerpt:
-      "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "consectetur advising elit, sed do eiusmod temper incididunt ut labore et dolore magna aliqua.",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
     href: "/blog",
