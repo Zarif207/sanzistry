@@ -74,7 +74,7 @@ export default function FeaturedBanner() {
           </h2>
 
           <p className="font-serif italic text-[#c5a47e] text-lg mb-8">
-            Paul Cézanne, 1877
+            Paul Cezanne, 1877
           </p>
 
           <div className="w-12 h-px bg-[#c5a47e] mb-10" />
