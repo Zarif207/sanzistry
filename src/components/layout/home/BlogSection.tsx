@@ -30,7 +30,7 @@ const posts = [
     date: "September 16, 2019",
     title: "The Street Painting Scene",
     excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit abet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image:
       "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=900&q=80",
     href: "/blog",
