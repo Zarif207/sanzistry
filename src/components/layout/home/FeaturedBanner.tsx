@@ -68,9 +68,9 @@ export default function FeaturedBanner() {
             Featured Highlight
           </p>
 
-          {/* ✅ KEEP YOUR PROJECT FONT (no font-playfair override) */}
+         
           <h2 className="font-serif text-[clamp(1.5rem,3vw,2.2rem)] font-light tracking-[0.18em] uppercase leading-tight mb-4 text-[#1a1a1a]">
-            Still Life with Jar, Cup and Apples
+            Still Life with Jar, Cup & Apples
           </h2>
 
           <p className="font-serif italic text-[#c5a47e] text-lg mb-8">
